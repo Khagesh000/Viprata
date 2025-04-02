@@ -26,8 +26,7 @@ SECRET_KEY = "django-insecure-81az_^#ki2akk-$dcn=s(d^@aqspvv^k6oqs$k$65c)cs6o!q2
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
-
+ALLOWED_HOSTS = ['viprata.onrender.com', 'localhost', '127.0.0.1']
 
 
 CORS_ALLOW_ALL_ORIGINS = True  # Allow all origins (for development only)
@@ -72,7 +71,7 @@ ROOT_URLCONF = "backend.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [BASE_DIR.joinpath('frontend', 'dist')],
+        "DIRS": [BASE_DIR.joinpath('frontend')],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
