@@ -1,12 +1,23 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 
-// https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
-  css: {
-    preprocessorOptions: {
-
+  build: {
+    chunkSizeWarningLimit: 2000, // You can adjust this based on your project size
+    rollupOptions: {
+      output: {
+        manualChunks(id) {
+          if (id.includes('node_modules')) {
+            return id.split('node_modules/')[1].split('/')[0];
+          }
+        },
+      },
+    },
+  },
+  resolve: {
+    alias: {
+      '@': '/src',
     },
   },
 });
