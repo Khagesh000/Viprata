@@ -19,7 +19,7 @@ from django.shortcuts import render
 from django.urls import path, include
 
 def index_view(request):
-    return render(request, 'dist/index.html')
+    return render(request, 'index.html')
 
 urlpatterns = [
     path("admin/", admin.site.urls),
