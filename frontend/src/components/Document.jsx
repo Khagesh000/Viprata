@@ -20,7 +20,7 @@ function Documents() {
   useEffect(() => {
     const fetchDocuments = async () => {
       try {
-        const response = await axios.get("http://127.0.0.1:8000/api/project_documents/");
+        const response = await axios.get("https://viprata.onrender.com/api/project_documents/");
         setDocuments(response.data);
       } catch (error) {
         console.error("❌ Error fetching documents:", error);
@@ -51,10 +51,10 @@ function Documents() {
     try {
       let response;
       if (addingNew) {
-        response = await axios.post("http://127.0.0.1:8000/api/project_documents/", formData);
+        response = await axios.post("https://viprata.onrender.com/api/project_documents/", formData);
         setDocuments([...documents, response.data]);
       } else if (selectedDocument) {
-        response = await axios.put(`http://127.0.0.1:8000/api/project_documents/${selectedDocument.id}/`, formData);
+        response = await axios.put(`https://viprata.onrender.com/api/project_documents/${selectedDocument.id}/`, formData);
         setDocuments((prevDocs) =>
           prevDocs.map((doc) => (doc.id === selectedDocument.id ? { ...doc, ...formData } : doc))
         );
@@ -72,7 +72,7 @@ function Documents() {
   const handleDelete = async (docId) => {
     if (!window.confirm("Are you sure you want to delete this document?")) return;
     try {
-      await axios.delete(`http://127.0.0.1:8000/api/project_documents/${docId}/`);
+      await axios.delete(`https://viprata.onrender.com/api/project_documents/${docId}/`);
       setDocuments((prevDocs) => prevDocs.filter((doc) => doc.id !== docId));
       alert("🗑️ Document deleted successfully!");
       if (selectedDocument?.id === docId) resetForm();

@@ -1,7 +1,7 @@
 
 import Documents from "./components/Document.jsx";
 import Content from "./components/content.jsx";
-
+import Performance from "./components/Performance.jsx";
 
 function App() {
   return (
@@ -9,6 +9,7 @@ function App() {
 
       <Documents />
       <Content />
+      <Performance />
       
     </div>
   );
