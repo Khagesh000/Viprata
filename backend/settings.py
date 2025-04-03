@@ -12,8 +12,6 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 
 from pathlib import Path
 import os
-import dj_database_url
-
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -95,18 +93,14 @@ WSGI_APPLICATION = "backend.wsgi.application"
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': os.getenv('MYSQL_DATABASE', 'viprata_tb'),  # Default DB name
-        'USER': os.getenv('MYSQL_USER', 'root'),            # Default DB user
-        'PASSWORD': os.getenv('MYSQL_PASSWORD', 'khagesh123'),        # Default DB password
-        'HOST': os.getenv('MYSQL_HOST', 'localhost'),       # Default DB host
-        'PORT': os.getenv('MYSQL_PORT', '3306'),            # Default DB port
+        'NAME': 'viprata_tb',    # Replace with your database name
+        'USER': 'root',    # Replace with your database username
+        'PASSWORD': 'khagesh123',  # Replace with your database password
+        'HOST': 'localhost',             # Or your database host
+        'PORT': '3306',                  # Or your database port
+       
     }
 }
-
-# Use DATABASE_URL if available (for Railway or other platforms)
-DATABASE_URL = os.getenv('DATABASE_URL')
-if DATABASE_URL:
-    DATABASES['default'] = dj_database_url.config(default=DATABASE_URL, conn_max_age=600)
 
 
 # Password validation
